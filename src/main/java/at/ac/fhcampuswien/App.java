@@ -51,7 +51,15 @@ public class App {
         m = Math.pow(2, 31);
         a = 1103515245;
         c = 12345;
+        ml = new Double(m).longValue();
 
+        int i = 0;
+        while (i<arr.length) {
+            if (i == 0) arr[i] = (a*seed+c)%ml;
+            else arr[i] = (a*arr[i-1]+c)%ml;
+            i++;
+        }
+        return arr;
    }
 
     // Aufgabe 3 -> guesingGame()
@@ -112,7 +120,7 @@ public class App {
         exercise3.oneMonthCalendar(30,6);
 
         System.out.println("\nTask 2: Stairs");
-        //exercise3.lcg(12345);
+        exercise3.lcg(12345);
 
         System.out.println("\nTask 3: Pyramide");
         // exercise3.guesingGame();
