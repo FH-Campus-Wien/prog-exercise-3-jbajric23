@@ -138,6 +138,25 @@ public class App {
     }
 
     // Aufgabe 6 - Check Digit
+
+    public static int checkDigit(int[] arr) {
+        int digit = 0;
+        int sum = 0;
+        for (int i = 0; i <= arr.length; i++) {
+            int[] gew = new int[i];
+            gew[i] = arr[i] + 2;
+            int[] sumarr = new int[i];
+            sumarr[i] = arr[i] * gew[i];
+            sum = 0;
+            sum = sum + sumarr[i];
+
+        }
+        int mod11 = sum % 11;
+        digit = 11 - mod11;
+        if (digit == 10) digit = 0;
+        if (digit == 11) digit = 5;
+        return digit;
+    }
     public static void main(String[] args) {
         // String[] args -> Strings, damit eine main() laufen kann
         /* Aufruf von args
@@ -172,6 +191,7 @@ public class App {
         exercise3.camelCase("MyNameIsntAlice");
 
         System.out.println("\nTask 6: Check Digit");
-        //exercise3.checkDigit();
+        int[] arr3 = new int[]{9, 7, 8, 2, 1, 4};
+        exercise3.checkDigit(arr3);
     }
 }
