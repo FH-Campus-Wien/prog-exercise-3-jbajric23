@@ -45,7 +45,7 @@ public class App {
     // if Loop definieren, Konstante variablen deklarieren -> Final
 
    public static long[] lcg(long seed) {
-        long[] arr = new long[10];
+        long[] arrSeed = new long[10];
         long a,c,ml;
         double m;
         m = Math.pow(2, 31);
@@ -54,21 +54,57 @@ public class App {
         ml = new Double(m).longValue();
 
         int i = 0;
-        while (i<arr.length) {
-            if (i == 0) arr[i] = (a*seed+c)%ml;
-            else arr[i] = (a*arr[i-1]+c)%ml;
+        while (i<arrSeed.length) {
+            if (i == 0) arrSeed[i] = (a*seed+c)%ml;
+            else arrSeed[i] = (a*arrSeed[i-1]+c)%ml;
             i++;
         }
-        return arr;
+        return arrSeed;
    }
 
     // Aufgabe 3 -> guesingGame()
     // API für Random Zahlen verwenden -> Math.random() or nextInt()
+    public static void guessingGame(int numToGuess) {
+        Scanner scanner3 = new Scanner(System.in);
+        for (int i = 1; i <= 10; i++) {
+            System.out.print("Guess number " + i + ": ");
+            int guess = scanner3.nextInt();
+            if (i == 10) {
+                System.out.print("You lost! Have you ever heard of divide & conquer?" + System.lineSeparator());
+                break;
+            }
+            if (guess > numToGuess) {
+                System.out.print("The number AI picked is lower than your guess." + System.lineSeparator());
+                continue;
+            } else if (guess < numToGuess) {
+                System.out.print("The number AI picked is higher than your guess." + System.lineSeparator());
+                continue;
+            } else if (guess == numToGuess) {
+                System.out.print("You won wisenheimer!" + System.lineSeparator());
+                break;
+            }
+        }
+    }
+
+    public static int randomNumberBetweenOneAndHundred() {
+        Random ran = new Random();
+        int randomNum = ran.nextInt(101);
+        boolean bool = true;
+        return randomNum;
+    }
 
     // Aufgabe 4 --> return false, wenn Array Längen nicht ident sind
     public static boolean swapArrays(int[] num1, int[] num2) {
         if (num1.length != num2.length) return false;
-        return true;
+        else {
+            int temp;
+            for (int i = 0; i < num1.length; i++) {
+                temp = num1[i];
+                num1[i] = num2[i];
+                num2[i] = temp;
+            }
+            return true;
+        }
     }
 
     // Aufgabe 5 --> Am Schluss machen, da Schwirigstes
@@ -123,7 +159,9 @@ public class App {
         exercise3.lcg(12345);
 
         System.out.println("\nTask 3: Pyramide");
-        // exercise3.guesingGame();
+        int ranNum = exercise3.randomNumberBetweenOneAndHundred();
+        exercise3.guessingGame(ranNum);
+
 
         System.out.println("\nTask 4: Raute");
         //exercise3.swapArrays();
