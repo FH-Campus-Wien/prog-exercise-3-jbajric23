@@ -88,7 +88,7 @@ public class App {
 
     public static int randomNumberBetweenOneAndHundred() {
         Random ran = new Random();
-        int randomNum = ran.nextInt(100);
+        int randomNum = ran.nextInt(101);
         boolean bool = true;
         return randomNum;
     }
