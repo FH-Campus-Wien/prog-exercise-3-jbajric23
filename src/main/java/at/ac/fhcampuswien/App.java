@@ -45,10 +45,10 @@ public class App {
     // if Loop definieren, Konstante variablen deklarieren -> Final
 
    public static long[] lcg(long seed) {
-        long[] arr = new long[];
+        long[] arr = new long[10];
         long a,c,ml;
         double m;
-        m =
+        m = Math.pow(2, 31);
         a = 1103515245;
         c = 12345;
 
