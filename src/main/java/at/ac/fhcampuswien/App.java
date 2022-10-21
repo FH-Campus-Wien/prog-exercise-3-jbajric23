@@ -88,7 +88,7 @@ public class App {
 
     public static int randomNumberBetweenOneAndHundred() {
         Random ran = new Random();
-        int randomNum = ran.nextInt(101);
+        int randomNum = ran.nextInt(100);
         boolean bool = true;
         return randomNum;
     }
@@ -152,24 +152,26 @@ public class App {
         } */
          App exercise3 = new App();
 
-        System.out.println("Task 1: Largest Number");
+        System.out.println("Task 1: One Month Calender");
         exercise3.oneMonthCalendar(30,6);
 
-        System.out.println("\nTask 2: Stairs");
+        System.out.println("\nTask 2: Pseudo Random Numbers");
         exercise3.lcg(12345);
 
-        System.out.println("\nTask 3: Pyramide");
+        System.out.println("\nTask 3: Guessing Game");
         int ranNum = exercise3.randomNumberBetweenOneAndHundred();
         exercise3.guessingGame(ranNum);
 
 
-        System.out.println("\nTask 4: Raute");
-        //exercise3.swapArrays();
+        System.out.println("\nTask 4: Swap Arrays");
+        int[] arr1 = new int[]{100, 202, 30, 14, 15, 16};
+        int[] arr2 = new int[]{1, 2, 3, 4, 5, 6};
+        exercise3.swapArrays(arr1, arr2);
 
-        System.out.println("\nTask 5: Notendurchschnitt");
+        System.out.println("\nTask 5: Camel Case");
         exercise3.camelCase("MyNameIsntAlice");
 
-        System.out.println("\nTask 6: Fröhliche Zahlen");
+        System.out.println("\nTask 6: Check Digit");
         //exercise3.checkDigit();
     }
 }
